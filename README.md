@@ -1,20 +1,92 @@
-# shiv_portfolio
-<<<<<<< HEAD
+# Shivpal Portfolio
 
-A new Flutter project.
+Personal portfolio website built with Flutter and Firebase.
 
-## Getting Started
+## Overview
 
-This project is a starting point for a Flutter application.
+This project is a responsive portfolio app for web and mobile platforms. It presents:
 
-A few resources to get you started if this is your first Flutter project:
+- hero and intro section
+- about and metrics section
+- work experience section
+- projects section
+- contact footer with launchable links
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+The app uses bundled local portfolio data by default and can also read dynamic content from Firestore.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-=======
-A flutter project to for portfolio website 
->>>>>>> 0d5fb5a9f57b4df54666ca1cc07e9d06f0419901
+## Tech Stack
+
+- Flutter
+- Dart
+- flutter_bloc
+- Firebase Core
+- Cloud Firestore
+- url_launcher
+
+## Firestore Content
+
+The app listens to these Firestore paths:
+
+- `projects`
+- `portfolio/links`
+
+If Firestore access is denied or no remote content is available, the UI falls back to bundled local data from [portfolio_data.dart](C:/Users/shivp/OneDrive/Desktop/shivpal/shiv_portfolio/lib/data/portfolio_data.dart).
+
+## Run Locally
+
+Install dependencies:
+
+```bash
+flutter pub get
+```
+
+Run the app:
+
+```bash
+flutter run
+```
+
+Run for web:
+
+```bash
+flutter run -d chrome
+```
+
+## Build Web
+
+```bash
+flutter build web
+```
+
+The production web output is generated in `build/web`.
+
+## Firebase Hosting
+
+This project is configured for Firebase Hosting.
+
+Deploy flow:
+
+```bash
+cmd /c firebase.cmd login
+cmd /c firebase.cmd deploy --only hosting
+```
+
+If PowerShell blocks `firebase`, use `firebase.cmd` as shown above.
+
+## Project Structure
+
+```text
+lib/
+  bloc/
+  core/
+  data/
+  models/
+  pages/
+  sections/
+```
+
+## Notes
+
+- Firebase project: `shiv-e0361`
+- Portfolio content can be managed locally or through Firestore
+- Navigation items scroll to their matching sections on the page
